@@ -11,11 +11,10 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id
   email     String   @unique
   name      String?
-  phone     String   @unique
-  password  String
+  phone     String?
   alerts    Alert[]
   createdAt DateTime @default(now())
 }
@@ -27,6 +26,6 @@ model Alert {
   videoUrl  String?
   audioUrl  String?
   user      User     @relation(fields: [userId], references: [id])
-  userId    Int
+  userId    String
   createdAt DateTime @default(now())
 }

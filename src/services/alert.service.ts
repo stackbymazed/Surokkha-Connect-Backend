@@ -6,7 +6,7 @@ export const createAlert = async (alertData: any) => {
   return await prisma.alert.create({
     data: {
       ...alertData,
-      userId: Number(alertData.userId),
+      userId: alertData.userId,
     },
   });
 };
